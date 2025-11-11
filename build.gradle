@@ -1,0 +1,10 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+// Note: For actual FTC projects, you would use the Android Gradle plugin
+// This simplified version allows building the core library logic
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
