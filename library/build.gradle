@@ -1,0 +1,25 @@
+plugins {
+    id 'java-library'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+    // FTC SDK dependencies
+    compileOnly 'org.firstinspires.ftc:RobotCore:9.0.1'
+    compileOnly 'org.firstinspires.ftc:Hardware:9.0.1'
+    compileOnly 'org.firstinspires.ftc:FtcCommon:9.0.1'
+    
+    // FTCLib for command-based system
+    compileOnly 'com.arcrobotics:ftclib:2.1.1'
+    
+    // Test dependencies
+    testImplementation 'junit:junit:4.13.2'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
