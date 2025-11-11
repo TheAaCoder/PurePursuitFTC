@@ -8,13 +8,15 @@ java {
 }
 
 dependencies {
-    // FTC SDK dependencies
-    compileOnly 'org.firstinspires.ftc:RobotCore:9.0.1'
-    compileOnly 'org.firstinspires.ftc:Hardware:9.0.1'
-    compileOnly 'org.firstinspires.ftc:FtcCommon:9.0.1'
+    // FTC SDK dependencies - marked as compileOnly for library use
+    // In actual FTC projects, these will be provided by the SDK
+    // For standalone testing, we comment them out
+    // compileOnly 'org.firstinspires.ftc:RobotCore:9.0.1'
+    // compileOnly 'org.firstinspires.ftc:Hardware:9.0.1'
+    // compileOnly 'org.firstinspires.ftc:FtcCommon:9.0.1'
     
-    // FTCLib for command-based system
-    compileOnly 'com.arcrobotics:ftclib:2.1.1'
+    // FTCLib for command-based system - also marked as compileOnly
+    // compileOnly 'com.arcrobotics:ftclib:2.1.1'
     
     // Test dependencies
     testImplementation 'junit:junit:4.13.2'
@@ -22,4 +24,17 @@ dependencies {
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
+    options.compilerArgs << '-Xlint:unchecked'
+    options.compilerArgs << '-Xlint:deprecation'
+}
+
+// Skip compiling example classes that depend on FTC SDK and FTCLib
+sourceSets {
+    main {
+        java {
+            exclude 'com/purepursuit/examples/**'
+            exclude 'com/purepursuit/subsystems/**'
+            exclude 'com/purepursuit/commands/**'
+        }
+    }
 }

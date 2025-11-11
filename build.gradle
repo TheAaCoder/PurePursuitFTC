@@ -1,18 +1,10 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:7.3.1'
-    }
-}
+// Note: For actual FTC projects, you would use the Android Gradle plugin
+// This simplified version allows building the core library logic
 
 allprojects {
     repositories {
-        google()
         mavenCentral()
     }
 }
